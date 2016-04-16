@@ -20,19 +20,7 @@
     <finalName>SampleApp</finalName>
   </build>
   
-  	<distributionManagement>
-		<repository>
-			<id>rsa.release</id>
-			<url>dav:${localhost.archiva}/rsa.release</url>
-		</repository>
-		<snapshotRepository>
-			<id>rsa.snapshots</id>
-			<url>dav:${localhost.archiva}/rsa.snapshots</url>
-			<uniqueVersion>false</uniqueVersion>
-		</snapshotRepository>
-	</distributionManagement>
-	
-	<distributionManagement>
+  <distributionManagement>
     <repository>
       <id>archiva.internal</id>
       <name>Internal Release Repository</name>
