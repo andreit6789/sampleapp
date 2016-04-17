@@ -20,16 +20,10 @@
     <finalName>SampleApp</finalName>
   </build>
   
-<distributionManagement>
-    <repository>
-      <id>nexus</id>
-      <name>Releases</name>
-      <url>http://localhost:8081/repository/maven-releases</url>
-    </repository>
+  <distributionManagement>
     <snapshotRepository>
-      <id>nexus</id>
-      <name>Snapshot</name>
-      <url>http://localhost:8081/repository/maven-snapshots</url>
+      <id>sample</id>
+      <url>http://localhost:8181/repository/sample/</url>
     </snapshotRepository>
   </distributionManagement>
   
