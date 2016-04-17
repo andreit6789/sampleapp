@@ -20,34 +20,39 @@
     <finalName>SampleApp</finalName>
 	<plugins>
 		<plugin>
-            <groupId>org.codehaus.cargo</groupId>
-            <artifactId>cargo-maven2-plugin</artifactId>
-            <version>1.4.4</version>
-			<executions>
-					<execution>
-						<id>SampleApp-deployer-redeploy</id>
-						<phase>package</phase>
-						<goals>
-							<goal>deployer-redeploy</goal>
-						</goals>
-					</execution>
-			</executions>
+        <groupId>org.codehaus.cargo</groupId>
+        <artifactId>cargo-maven2-plugin</artifactId>
+        <version>1.3.3</version>
+        <configuration>
+            <container>
+                <containerId>tomcat7x</containerId>
+                <type>remote</type>
+            </container>
             <configuration>
-                <container>
-                    <containerId>tomcat7x</containerId>
-                    <type>remote</type>
-                </container>
-                <configuration>
                 <type>runtime</type>
-                    <properties>
-                        <cargo.hostname>localhost</cargo.hostname>
-                        <cargo.servlet.port>8282</cargo.servlet.port>
-                        <cargo.remote.username>admin</cargo.remote.username>
-                        <cargo.remote.password>password</cargo.remote.password>
-                    </properties>
-                </configuration>
+                <properties>
+                    <cargo.remote.username>admin</cargo.remote.username>
+                    <cargo.remote.password>password</cargo.remote.password>
+                    <cargo.hostname>localhost</cargo.hostname>
+                    <cargo.protocol>http</cargo.protocol>
+                    <cargo.servlet.port>8282</cargo.servlet.port>
+                </properties>
             </configuration>
-        </plugin>
+
+            <!-- Deployer configuration -->
+            <deployer>
+                <type>remote</type>
+            </deployer>
+            <deployables>
+                <deployable>
+                    <groupId>com.sample</groupId>
+                    <artifactId>SampleApp</artifactId>
+                    <type>war</type>
+                </deployable>
+            </deployables>
+
+        </configuration>
+    </plugin>
 	</plugins>
   </build>
 
